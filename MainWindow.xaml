@@ -1,0 +1,54 @@
+﻿<Window x:Class="Inventurprogramm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventurprogramm"
+        mc:Ignorable="d"
+        Title="Inventar" Height="450" Width="800" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <!--row 1-->
+        <StackPanel Orientation="Horizontal" Height="80" VerticalAlignment="Top" Background="LightBlue">
+            <Button x:Name="Erstellen_Btn" Margin="5" Height="45" Width="70" ToolTip="Add a new Item" Background="White" Click="Row1_Btn" Tag="Erstellen">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="C:\Users\anjann\OneDrive - Theodor-Schäfer-Berufsbildungswerk Husum\VS Projekte\Inventurprogramm\d588283f8d9cbd614c8a6895996443.png" MaxHeight="20" MinHeight="20"/>
+                    <TextBlock Margin="5">Erstellen</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Bearbeiten_Btn" Margin="5" Height="45" Width="70" ToolTip="Edit" Background="White" Click="Row1_Btn" Tag="Bearbeiten">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="C:\Users\anjann\OneDrive - Theodor-Schäfer-Berufsbildungswerk Husum\VS Projekte\Inventurprogramm\41-512.png" MaxHeight="20" MaxWidth="20"/>
+                    <TextBlock Margin="5">Bearbeiten</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Löschen_Btn" Margin="5" Height="45" Width="70" ToolTip="Delete" Background="White" Click="Row1_Btn" Tag="Löschen">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="C:\Users\anjann\OneDrive - Theodor-Schäfer-Berufsbildungswerk Husum\VS Projekte\Inventurprogramm\d9d88630432cf61ad335df98ce37d6.png" MaxHeight="20" MaxWidth="20"/>
+                    <TextBlock Margin="5" Tag="Löschen">Löschen</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="SucheStarten_btn" Margin="5,18" Height="45" Width="515" ToolTip="Search" Background="White" Click="Row1_Btn">
+                <StackPanel Orientation="Vertical">
+                    <!--<Image Source="C:\Users\anjann\Pictures\Saved Pictures\d9d88630432cf61ad335df98ce37d6.png" MaxHeight="20" MaxWidth="20"/>-->
+                    <TextBlock Text="&#x0001f50e;" MaxHeight="20" MaxWidth="20"/>
+                    <TextBlock Margin="5">Suchen</TextBlock>
+                </StackPanel>
+            </Button>
+            <!--/ Erstell Btn | Bearbeitungs- Btn | Löschen Btn-->
+
+            <!-- row 2-->
+        </StackPanel>
+        <CheckBox Grid.Row="1" Margin="10,0,0,0" VerticalAlignment="Center" Content="z.B. 123" IsChecked="True"/>
+        <!-- Content ist, was gesucht wurde, by Textbox enabled = false soll ungefiltert alles angezeigt werden-->
+        <Grid Grid.Row="3">
+            <DataGrid CanUserAddRows="False" Name="dataGrid1" Margin="10" ItemsSource="{Binding Data}" HorizontalAlignment="Stretch" SelectionMode="Single" SelectionChanged="DataGrid1_SelectionChanged" SelectedItem="{Binding SelectedInformation}"/>
+        </Grid>
+    </Grid>
+</Window>
